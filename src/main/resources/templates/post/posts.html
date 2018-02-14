@@ -21,12 +21,13 @@
     <body>
     <br></br>
     <h1>Posts</h1>
-
     <article th:each="post : ${posts}">
-        <header>
-            <h1 th:text="${post.heading}"></h1>
+        <p th:text="${#dates.format(post.postDate, 'dd.MM.yyyy HH:mm')}"></p>
+        <h1 th:text="${post.heading}"></h1>
             <h2 th:text="${post.description}"></h2>
-        </header>
+        <a href=""></a>
+        <br></br>
+
 
     </article>
 

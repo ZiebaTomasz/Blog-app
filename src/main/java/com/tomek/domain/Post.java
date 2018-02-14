@@ -1,7 +1,5 @@
 package com.tomek.domain;
 
-import javafx.geometry.Pos;
-
 import javax.persistence.*;
 import java.util.*;
 
@@ -21,7 +19,7 @@ public class Post {
     private String content;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date createDate;
+    private Date postDate;
 
     @ManyToOne
     private Writer writer;
@@ -73,12 +71,12 @@ public class Post {
         this.content = content;
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    public Date getPostDate() {
+        return postDate;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setPostDate(Date postDate) {
+        this.postDate = postDate;
     }
 
     public Writer getWriter() {
@@ -102,7 +100,7 @@ public class Post {
                 ", heading='" + heading + '\'' +
                 ", description='" + description + '\'' +
                 ", content='" + content + '\'' +
-                ", createDate=" + createDate +
+                ", postDate=" + postDate +
                 ", writer=" + writer +
                 '}';
     }
