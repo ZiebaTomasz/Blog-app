@@ -20,4 +20,8 @@ public class WriterService {
     public Writer writerByName(String name){
         return writerRepository.findByFirstName(name);
     }
+
+    public List<Writer> allWritersById() {
+        return writerRepository.findAll();
+    }
 }

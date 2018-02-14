@@ -10,4 +10,6 @@ import java.util.List;
 public interface WriterRepository extends CrudRepository<Writer, Long> {
 
     Writer findByFirstName(String firstName);
+
+    List<Writer> findAll();
 }

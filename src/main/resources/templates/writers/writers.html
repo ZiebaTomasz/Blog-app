@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<layout:html lang="en"
+             xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:th="http://www.thymeleaf.org"
+             xmlns:layout="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>writers</title>
+        <style type="text/css">
+
+            table.tab {
+                border-width: 2px;
+                border-color: black;
+                margin: auto;
+                border-collapse: collapse;
+                width: 600px;
+                border-bottom-width: medium;
+
+            }
+        </style>
+    </head>
+    <body>
+    <br></br>
+    <table class="tab">
+        <thead>
+        <tr>
+            <th>First name</th>
+            <th>Last Name</th>
+            <th>email</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="writer : ${writers}">
+            <td th:text="${writer.firstName}"></td>
+            <td th:text="${writer.lastName}"></td>
+            <td th:text="${writer.email}"></td>
+        </tr>
+        </tbody>
+
+    </table>
+    </body>
+</layout:html>
+
+
+
+
+

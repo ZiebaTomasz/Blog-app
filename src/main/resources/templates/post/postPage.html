@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Post page</title>
-</head>
-<body>
-Post page
-</body>
-</html>
+<layout:html lang="en"
+             xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:th="http://www.thymeleaf.org"
+             xmlns:layout="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Blog Home Page</title>
+    </head>
+    <body>
+    Writer page
+    <br></br>
+
+    <p th:text="${writer.firstName}"></p>
+
+    </body>
+</layout:html>
+

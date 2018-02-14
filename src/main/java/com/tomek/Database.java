@@ -35,7 +35,11 @@ public class Database {
         Post firstPost = new Post("First post");
         firstPost.setWriter(tomek);
         firstPost.setDescription("first post for tests");
-
         postRepository.save(firstPost);
+
+        Post secondPost = new Post("Second post");
+        secondPost.setWriter(susan);
+        secondPost.setDescription("second post about nothing");
+        postRepository.save(secondPost);
     }
 }

@@ -21,4 +21,10 @@ public class WriterController {
         model.addAttribute("writer", writerService.writerByName("Tomek"));
         return "post/postPage";
     }
+
+    @RequestMapping("/writers")
+    public String allWritesById(Model model) {
+        model.addAttribute("writers", writerService.allWritersById());
+        return "writers/writers";
+    }
 }
