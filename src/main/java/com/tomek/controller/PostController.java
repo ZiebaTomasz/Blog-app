@@ -21,4 +21,10 @@ public class PostController {
         model.addAttribute("posts", postService.allPosts());
         return "post/posts";
     }
+
+    @RequestMapping("post/cont")
+    public String postContent(Model model) {
+//        model.addAttribute()
+        return "post/postContent";
+    }
 }
