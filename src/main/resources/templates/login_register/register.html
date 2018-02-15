@@ -3,7 +3,7 @@
              xmlns="http://www.w3.org/1999/xhtml"
              xmlns:th="http://www.thymeleaf.org"
              xmlns:layout="http://www.w3.org/1999/xhtml">
-    <head>
+    <head th:replace="layouts/layout :: head">
         <title>Blog Home Page</title>
     </head>
     <body>
@@ -20,7 +20,3 @@
     <button type="submit">Sign in</button>
     </body>
 </layout:html>
-
-
-
-

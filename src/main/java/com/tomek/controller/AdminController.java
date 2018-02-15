@@ -31,7 +31,18 @@ public class AdminController {
     @RequestMapping("/admin/delete/{id}")
     public String delete(@PathVariable(value = "id") Long id) {
         postService.deletePostById(id);
-        return "admin/admin";
+        return "redirect:/admin";
+    }
+
+    @RequestMapping("/login")
+    public String login() {
+        return "login_register/login";
+    }
+
+    @RequestMapping("/register")
+    public String register() {
+
+        return "login_register/register";
     }
 
 

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<layout:html lang="en"
+             xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:th="http://www.thymeleaf.org"
+             xmlns:layout="http://www.w3.org/1999/xhtml">
+    <head th:replace="layouts/layout :: head">
+        <title>Blog Home Page</title>
+    </head>
+    <body>
+    <table class="tab">
+        <thead>
+        <tr>
+            <th>Author</th>
+            <th>email</th>
+            <th>See all posts</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="writer : ${writers}">
+            <td th:text="${writer.firstName}">first name</td>
+            <td><a th:href="${writer.email}">email</a></td>
+            <td><a th:href="|@{/edit}${post.id}|">Edit</a></td>
+
+        </tr>
+        </tbody>
+    </table>
+    </body>
+</layout:html>
+

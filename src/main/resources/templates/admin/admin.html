@@ -3,7 +3,8 @@
              xmlns="http://www.w3.org/1999/xhtml"
              xmlns:th="http://www.thymeleaf.org"
              xmlns:layout="http://www.w3.org/1999/xhtml">
-    <head>
+    <head th:replace="layouts/layout :: head">
+        <br></br>
         <title>writers</title>
         <style type="text/css">
 
@@ -14,7 +15,6 @@
                 border-collapse: collapse;
                 width: 600px;
                 border-bottom-width: medium;
-
             }
         </style>
     </head>
@@ -38,12 +38,14 @@
             <td th:text="${post.heading}"></td>
             <td th:text="${post.writer.firstName}"></td>
 
-            <td><a href="#" th:href="|@{/post/}${post.id}|">Detail</a></td>
-            <td><a href="#" th:href="|@{/admin/edit}${post.id}|">Edit</a></td>
-            <td><a href="#" th:href="|@{/admin/delete/}${post.id}|">Delete</a></td>
+            <td><a th:href="|@{/post/}${post.id}|">Detail</a></td>
+            <td><a th:href="|@{/edit}${post.id}|">Edit</a></td>
+            <td><a th:href="|@{/admin/delete/}${post.id}|">Delete</a></td>
         </tr>
         </tbody>
-
     </table>
+
+    <!--<h1><a th:href="|@{/admin/edit/}${post.id}|"></a></h1>-->
+
     </body>
 </layout:html>

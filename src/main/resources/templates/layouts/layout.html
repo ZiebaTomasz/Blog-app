@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<layout:html lang="en"
+             xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:th="http://www.thymeleaf.org"
+             xmlns:layout="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>writers</title>
+        <style type="text/css">
+
+        </style>
+    </head>
+    <body>
+    <br></br>
+    <div th:fragment="head">
+        <table class="header" style="width: 350px">
+            <thead>
+            <tr>
+                <th><a th:href="@{/}">Posts</a></th>
+                <th><a th:href="@{/writers}"></a></th>
+                <th><a th:href="@{/admin}">manage entries</a></th>
+                <th><a th:href="@{/login}">login</a></th>
+                <th><a th:href="@{/register}"></a></th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+
+        </table>
+    </div>
+    </body>
+</layout:html>

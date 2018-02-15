@@ -13,7 +13,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         super.addViewControllers(registry);
-        registry.addViewController("/login").setViewName("post/index");
+        registry.addViewController("/login_register").setViewName("post/index");
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
     }
 

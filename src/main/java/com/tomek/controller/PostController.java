@@ -35,4 +35,10 @@ public class PostController {
         model.addAttribute("post", postService.postById(id));
         return "post/postContent";
     }
+
+    @RequestMapping("/edit/{post}")
+    public String editPost(@PathVariable(value = "post") Long id, Model model) {
+        model.addAttribute("post", postService.postById(id));
+        return "post/postContent";
+    }
 }

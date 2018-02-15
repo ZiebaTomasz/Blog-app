@@ -3,21 +3,18 @@
              xmlns="http://www.w3.org/1999/xhtml"
              xmlns:th="http://www.thymeleaf.org"
              xmlns:layout="http://www.w3.org/1999/xhtml">
-    <head th:replace="layouts/layout :: head">
-        <title>Blog Home Page</title>
+    <head>
+        <title>Edit post</title>
     </head>
     <body>
     <h2>
-        <a th:href="@{/}">Back to list of posts</a>
-        <!--|@{/post/}${post.id}|-->
+        <a th:href="@{/}">Back to the list of posts</a>
     </h2>
-    <h1 style="text-align: center">Post detail</h1>
-    <br></br>
+
 
     <h1>Title</h1>
     <p th:text="${post.heading} ">my text</p>
-    <br></br>
-    <h1>Author</h1>
+
 
     <p th:text="${post.writer.firstName}"></p>
     <p th:text="${post.writer.lastName}"></p>
@@ -29,4 +26,3 @@
 
     </body>
 </layout:html>
-

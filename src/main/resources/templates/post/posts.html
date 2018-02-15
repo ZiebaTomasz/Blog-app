@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <layout:html lang="en"
-             xmlns="http://www.w3.org/1999/xhtml"
              xmlns:th="http://www.thymeleaf.org"
              xmlns:layout="http://www.w3.org/1999/xhtml">
-    <head>
+    <head th:replace="layouts/layout :: head">
+
         <title>posts</title>
         <style type="text/css">
 
@@ -14,25 +14,21 @@
                 border-collapse: collapse;
                 width: 600px;
                 border-bottom-width: medium;
-
             }
-
         </style>
     </head>
     <body>
-    <br></br>
-    <h1>Posts</h1>
-    <article th:each="post : ${posts}">
-        <p th:text="${#dates.format(post.postDate, 'dd.MM.yyyy HH:mm')}"></p>
-        <h1 th:text="${post.heading}"></h1>
-        <h2 th:text="${post.description}"></h2>
-        <a th:href="|@{/post/}${post.id}|">Read More</a>
-
+    <div>
         <br></br>
-
-
-    </article>
-
+        <h1>Posts</h1>
+        <article th:each="post : ${posts}">
+            <p th:text="${#dates.format(post.postDate, 'dd.MM.yyyy HH:mm')}"></p>
+            <h1 th:text="${post.heading}"></h1>
+            <h2 th:text="${post.description}"></h2>
+            <a th:href="|@{/post/}${post.id}|">Read More</a>
+            <br></br>
+        </article>
+    </div>
     </body>
 </layout:html>
 
