@@ -22,4 +22,8 @@ public class PostService {
     public List<Post> allPosts() {
         return postRepository.findAll();
     }
+
+    public Post postById(Long id) {
+        return postRepository.findOne(id);
+    }
 }

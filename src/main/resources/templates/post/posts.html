@@ -16,6 +16,7 @@
                 border-bottom-width: medium;
 
             }
+
         </style>
     </head>
     <body>
@@ -25,7 +26,7 @@
         <p th:text="${#dates.format(post.postDate, 'dd.MM.yyyy HH:mm')}"></p>
         <h1 th:text="${post.heading}"></h1>
             <h2 th:text="${post.description}"></h2>
-        <a th:href="|@{/post/cont}|">Read More</a>
+        <a th:href="|@{/post/}${post.id}|">Read More</a>
 
         <br></br>
 
