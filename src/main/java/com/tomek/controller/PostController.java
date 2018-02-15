@@ -24,11 +24,11 @@ public class PostController {
         return "post/posts";
     }
 
-    @RequestMapping("/cont")
-    public String postContent(Model model) {
-//        model.addAttribute()
-        return "post/postContent";
-    }
+//    @RequestMapping("/cont")
+//    public String postContent(Model model) {
+////        model.addAttribute()
+//        return "post/postContent";
+//    }
 
     @RequestMapping("/post/{post}")
     public String onePost(@PathVariable(value = "post") Long id, Model model) {

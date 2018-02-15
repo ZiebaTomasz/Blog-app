@@ -8,14 +8,14 @@
     </head>
     <body>
     <h2>
-        <a href="posts.html">Back to list of posts</a>
+        <a th:href="@{/}">Back to list of posts</a>
+        <!--|@{/post/}${post.id}|-->
     </h2>
     <h1 style="text-align: center">Post detail</h1>
     <br></br>
 
     <h1>Title</h1>
     <p th:text="${post.heading} ">my text</p>
-
     <br></br>
     <h1>Author</h1>
 
@@ -25,6 +25,7 @@
     <h1>Short desciption</h1>
     <p th:text="${post.description}"></p>
     <p th:text="${post.content}"></p>
+    <br></br>
 
     </body>
 </layout:html>

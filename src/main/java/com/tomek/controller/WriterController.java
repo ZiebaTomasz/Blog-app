@@ -24,7 +24,7 @@ public class WriterController {
 
     @RequestMapping("/writers")
     public String allWritesById(Model model) {
-        model.addAttribute("writers", writerService.allWritersById());
-        return "writers/writers";
+        model.addAttribute("admin", writerService.allWritersById());
+        return "admin/admin";
     }
 }
