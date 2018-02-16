@@ -19,7 +19,7 @@
         <tr th:each="writer : ${writers}">
             <td th:text="${writer.firstName}">first name</td>
             <td><a th:href="${writer.email}">email</a></td>
-            <td><a th:href="|@{/edit}${post.id}|">Edit</a></td>
+            <td><a th:href="|@{/postWriter/}${writer.id}|">See posts</a></td>
 
         </tr>
         </tbody>

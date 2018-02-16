@@ -12,4 +12,6 @@ public interface WriterRepository extends CrudRepository<Writer, Long> {
     Writer findByFirstName(String firstName);
 
     List<Writer> findAll();
+
+    List<Writer> findAllById(Long id);
 }

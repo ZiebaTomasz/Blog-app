@@ -4,6 +4,7 @@ import com.tomek.service.WriterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -16,15 +17,15 @@ public class WriterController {
         this.writerService = writerService;
     }
 
-    @RequestMapping("/tom")
-    public String writerName(Model model){
-        model.addAttribute("writer", writerService.writerByName("Tomek"));
-        return "post/postPage";
-    }
+//    @RequestMapping("/writer/{id}")
+//    public String writerName(@PathVariable(value = "id")Long id, Model model){
+//        model.addAttribute("writers", writerService.writerById(id));
+//        return "writer/writers";
+//    }
 
     @RequestMapping("/writers")
     public String allWritesById(Model model) {
         model.addAttribute("writers", writerService.allWritersById());
-        return "writers/writers";
+        return "writer/writers";
     }
 }

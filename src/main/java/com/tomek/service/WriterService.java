@@ -24,4 +24,8 @@ public class WriterService {
     public List<Writer> allWritersById() {
         return writerRepository.findAll();
     }
+
+    public List<Writer> writerById(Long id) {
+        return writerRepository.findAllById(id);
+    }
 }

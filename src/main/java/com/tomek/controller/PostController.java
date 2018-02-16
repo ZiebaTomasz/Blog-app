@@ -24,6 +24,7 @@ public class PostController {
         return "post/posts";
     }
 
+
 //    @RequestMapping("/cont")
 //    public String postContent(Model model) {
 ////        model.addAttribute()
@@ -40,5 +41,11 @@ public class PostController {
     public String editPost(@PathVariable(value = "post") Long id, Model model) {
         model.addAttribute("post", postService.postById(id));
         return "post/postContent";
+    }
+
+    @RequestMapping("/postWriter/{writerId}")
+    public String allPostsByWriterId(@PathVariable(value = "writerId") Long id, Model model) {
+        model.addAttribute("posts", postService.postById(id));
+        return "post/posts";
     }
 }
