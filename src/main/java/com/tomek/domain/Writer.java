@@ -1,6 +1,7 @@
 package com.tomek.domain;
 
 import lombok.*;
+import sun.security.util.Password;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

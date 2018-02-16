@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @Controller
-@Secured({"ROLE_ADMIN"})
+//@Secured({"ROLE_ADMIN"})
 public class AdminController {
 
     PostService postService;
@@ -34,6 +34,11 @@ public class AdminController {
     public String delete(@PathVariable(value = "id") Long id) {
         postService.deletePostById(id);
         return "redirect:/admin";
+    }
+
+    @RequestMapping("/addPost")
+    public String addPost() {
+        return "admin/addPost";
     }
 
 
