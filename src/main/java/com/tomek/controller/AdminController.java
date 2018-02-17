@@ -62,8 +62,9 @@ public class AdminController {
             model.addAttribute("writers", writerService.allWritersById());
             return "admin/addPost";
         } else {
-            Post savedPost = postService.save(post);
-            return "redirect:/post/posts";
+//            Post savedPost =
+                    postService.save(post);
+            return "redirect:/admin/";
         }
 
     }
