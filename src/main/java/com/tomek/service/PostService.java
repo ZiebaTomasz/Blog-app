@@ -34,4 +34,9 @@ public class PostService {
     public List<Post> findPostByid(Long id) {
         return postRepository.findAllByWriterId(id);
     }
+
+    public Post save(Post post){
+        return postRepository.save(post);
+    }
+
 }

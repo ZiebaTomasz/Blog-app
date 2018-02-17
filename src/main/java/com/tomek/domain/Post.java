@@ -31,8 +31,8 @@ public class Post {
     @ElementCollection(targetClass=String.class, fetch = FetchType.EAGER)
     private List<String> tags = new ArrayList<>();
 
-    private Post(){
-
+    public Post(){
+        this.postDate = new Date();
     }
 
     public Post(String heading){
