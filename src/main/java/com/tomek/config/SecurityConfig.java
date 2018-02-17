@@ -20,11 +20,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
-                .loginPage("/login_register")
+                .loginPage("/login")
                 .permitAll()
                 .and()
                 .logout()
-                .logoutSuccessUrl("/login_register?logout")
+                .logoutSuccessUrl("/login?logout")
                 .permitAll();
     }
 

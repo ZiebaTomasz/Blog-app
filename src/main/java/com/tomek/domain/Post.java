@@ -1,6 +1,7 @@
 package com.tomek.domain;
 
 import lombok.*;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.util.*;
@@ -13,6 +14,7 @@ public class Post {
     @GeneratedValue
     private Long id;
 
+    @NotEmpty
     private String heading;
 
     @Lob

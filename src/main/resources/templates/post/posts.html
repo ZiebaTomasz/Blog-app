@@ -24,8 +24,9 @@
         <article th:each="post : ${posts}">
             <p th:text="${#dates.format(post.postDate, 'dd.MM.yyyy HH:mm')}"></p>
             <h1 th:text="${post.heading}"></h1>
-            <h2 th:text="${post.description}"></h2>
+            <p th:text="${post.description}"></p>
             <a th:href="|@{/post/}${post.id}|">Read More</a>
+            <br></br>
             <br></br>
         </article>
     </div>

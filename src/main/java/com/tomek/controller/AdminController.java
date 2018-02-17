@@ -17,7 +17,7 @@ import javax.validation.Valid;
 import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @Controller
-//@Secured({"ROLE_ADMIN"})
+@Secured({"ROLE_ADMIN"})
 public class AdminController {
 
     PostService postService;
@@ -41,10 +41,10 @@ public class AdminController {
         return "redirect:/admin";
     }
 
-    @RequestMapping("/addPost")
-    public String addPost() {
-        return "admin/addPost";
-    }
+//    @RequestMapping("/addPost")
+//    public String addPost() {
+//        return "admin/addPost";
+//    }
 
 
     @RequestMapping("/admin/create")
