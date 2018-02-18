@@ -1,5 +1,6 @@
 package com.tomek.service;
 
+import com.tomek.domain.Post;
 import com.tomek.domain.observer.PostObserver;
 import com.tomek.repository.PostObserverRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,9 @@ public class PostObserverService {
 
     public List<PostObserver> getAllObservers(){
         return postObserverRepository.findAll();
+    }
+
+    public PostObserver save(PostObserver postObserver){
+        return postObserverRepository.save(postObserver);
     }
 }

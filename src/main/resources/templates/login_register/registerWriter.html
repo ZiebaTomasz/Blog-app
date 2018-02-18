@@ -9,14 +9,45 @@
     <body>
         <h1>Login Page</h1>
         <br></br>
+        <form class="form-horizontal" th:object="${post}" th:action="@{/admin/save}" method="post">
+            <input type="hidden" th:field="*{id}"/>
+            <div th:class="form-group" th:classappend="${#fields.hasErrors('heading')}? 'has-error'">
+                <label class="col-sm-2 control-label">Title <span class="required">*</span></label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" th:field="*{heading}"/>
+                    <span th:if="${#fields.hasErrors('heading')}" th:errors="*{heading}"
+                          th:class="help-block">Title Errors</span>
+                </div>
+            </div>
+            <div th:class="form-group" th:classappend="${#fields.hasErrors('description')}? 'has-error'">
+                <label class="col-sm-2 control-label">Description <span class="required">*</span></label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" th:field="*{description}"/>
+                    <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}" th:class="help-block">description error</span>
+                </div>
+            </div>
 
-        <label for="username">User name</label>
-        <input type="text" id="username" name="username" required="true"/>
-
-        <br></br>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required="true"/>
-        <br></br>
-        <button type="submit">Sign in</button>
+            <div th:class="form-group" th:classappend="${#fields.hasErrors('writer')}? 'has-error'">
+                <label class="col-sm-2 control-label">Writer <span class="required">*</span></label>
+                <div class="col-md-10">
+                    <select class="form-control" th:field="*{writer}">
+                        <option value="">Select Writer</option>
+                        <option th:each="writer : ${writers}" th:value="${writer.id}"
+                                th:text="${writer.firstName + ' ' + writer.lastName}">Authors
+                        </option>
+                    </select>
+                    <span th:if="${#fields.hasErrors('writer')}" th:errors="*{writer}"
+                          th:class="help-block">Writer Errors</span>
+                </div>
+            </div>
+            <div th:class="form-group" th:classappend="${#fields.hasErrors('content')}? 'has-error'">
+                <label class="col-sm-2 control-label">Content <span class="required">*</span></label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" th:field="*{content}"/>
+                    <span th:if="${#fields.hasErrors('content')}" th:errors="*{content}" th:class="help-block">content error</span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary pull-right">Submit</button>
+        </form>
     </body>
 </layout:html>

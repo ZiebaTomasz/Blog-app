@@ -1,6 +1,8 @@
 package com.tomek.controller;
 
 import com.tomek.domain.Post;
+import com.tomek.domain.observer.PostObserver;
+import com.tomek.domain.observer.SingleNotifier;
 import com.tomek.service.PostObserverService;
 import com.tomek.service.PostService;
 import com.tomek.service.WriterService;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
+
+import java.util.List;
 
 import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
@@ -61,16 +65,13 @@ public class AdminController {
 
     @RequestMapping( value = "/admin/save", method = RequestMethod.POST )
     public String save(@Valid Post post, BindingResult bindingResult, Model model) {
-
-        if( bindingResult.hasErrors() ){
+        if (bindingResult.hasErrors()) {
             model.addAttribute("writers", writerService.allWritersById());
             return "admin/addPost";
         } else {
             Post savedPost = postService.save(post);
-
             System.out.println(savedPost.toString());
             return "redirect:/admin/";
         }
-
     }
 }
