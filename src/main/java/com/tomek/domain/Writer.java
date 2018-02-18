@@ -20,7 +20,7 @@ public class Writer {
     private String lastName;
     private String email;
 
-    private Writer(){
+    public Writer(){
 
     }
 

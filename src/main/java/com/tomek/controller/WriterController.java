@@ -1,5 +1,6 @@
 package com.tomek.controller;
 
+import com.tomek.domain.Writer;
 import com.tomek.service.WriterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,5 +30,13 @@ public class WriterController {
         return "writer/writers";
     }
 
-//    @RequestMapping()
+    @RequestMapping("/writer/newWriter")
+    public String newWriter(Model model) {
+
+        model.addAttribute("writer",new Writer());
+        return "writer/writerRegistration";
+    }
+
+
+
 }

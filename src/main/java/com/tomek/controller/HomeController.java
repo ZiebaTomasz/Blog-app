@@ -28,7 +28,7 @@ public class HomeController {
 
     @RequestMapping("/register")
     public String register() {
-        return "login_register/register";
+        return "login_register/registerWriter";
     }
 
 

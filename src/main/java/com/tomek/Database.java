@@ -2,6 +2,8 @@ package com.tomek;
 
 import com.tomek.domain.Post;
 import com.tomek.domain.Writer;
+import com.tomek.domain.observer.PostObserver;
+import com.tomek.repository.PostObserverRepository;
 import com.tomek.repository.PostRepository;
 import com.tomek.repository.WriterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +20,16 @@ public class Database {
 
     private PostRepository postRepository;
     private WriterRepository writerRepository;
+    private PostObserverRepository postObserverRepository;
 
     @Autowired
-    public Database(PostRepository postRepository, WriterRepository writerRepository) {
+    public Database(PostRepository postRepository, WriterRepository writerRepository,
+                    PostObserverRepository postObserverRepository) {
         this.postRepository = postRepository;
         this.writerRepository = writerRepository;
+        this.postObserverRepository = postObserverRepository;
     }
+
 
     @PostConstruct
     private void loadData(){
@@ -56,5 +62,9 @@ public class Database {
                 " dwelling graceful six humoured. Whether mr up savings talking an. Active mutual nor\n" +
                 " father mother exeter change six did all. ");
         postRepository.save(secondPost);
+
+        PostObserver postObserver = new PostObserver("tomek@mail.com");
+        postObserverRepository.save(postObserver);
+
     }
 }

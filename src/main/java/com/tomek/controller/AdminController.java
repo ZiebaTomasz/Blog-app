@@ -1,6 +1,7 @@
 package com.tomek.controller;
 
 import com.tomek.domain.Post;
+import com.tomek.service.PostObserverService;
 import com.tomek.service.PostService;
 import com.tomek.service.WriterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,12 +23,15 @@ public class AdminController {
 
     PostService postService;
     WriterService writerService;
+    PostObserverService postObserverService;
 
     @Autowired
-    public AdminController(PostService postService, WriterService writerService) {
+    public AdminController(PostService postService, WriterService writerService, PostObserverService postObserverService) {
         this.postService = postService;
         this.writerService = writerService;
+        this.postObserverService = postObserverService;
     }
+
 
     @RequestMapping("/admin")
     public String some(Model model){
@@ -62,8 +66,9 @@ public class AdminController {
             model.addAttribute("writers", writerService.allWritersById());
             return "admin/addPost";
         } else {
-//            Post savedPost =
-                    postService.save(post);
+            Post savedPost = postService.save(post);
+
+            System.out.println(savedPost.toString());
             return "redirect:/admin/";
         }
 
