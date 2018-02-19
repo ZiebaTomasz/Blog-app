@@ -1,8 +1,7 @@
 package com.tomek.controller;
 
 import com.tomek.domain.Post;
-import com.tomek.domain.observer.PostObserver;
-import com.tomek.domain.observer.SingleNotifier;
+import com.tomek.service.NotificationService;
 import com.tomek.service.PostObserverService;
 import com.tomek.service.PostService;
 import com.tomek.service.WriterService;
@@ -17,10 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
 
-import java.util.List;
-
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
-
 @Controller
 @Secured({"ROLE_ADMIN"})
 public class AdminController {
@@ -28,14 +23,16 @@ public class AdminController {
     PostService postService;
     WriterService writerService;
     PostObserverService postObserverService;
+    NotificationService notificationService;
 
     @Autowired
-    public AdminController(PostService postService, WriterService writerService, PostObserverService postObserverService) {
+    public AdminController(PostService postService, WriterService writerService,
+                           PostObserverService postObserverService, NotificationService notificationService) {
         this.postService = postService;
         this.writerService = writerService;
         this.postObserverService = postObserverService;
+        this.notificationService = notificationService;
     }
-
 
     @RequestMapping("/admin")
     public String some(Model model){
@@ -49,19 +46,12 @@ public class AdminController {
         return "redirect:/admin";
     }
 
-//    @RequestMapping("/addPost")
-//    public String addPost() {
-//        return "admin/addPost";
-//    }
-
-
     @RequestMapping("/admin/create")
     public String create(Model model) {
         model.addAttribute("post", new Post());
         model.addAttribute("writers", writerService.allWritersById());
         return "admin/addPost";
     }
-
 
     @RequestMapping( value = "/admin/save", method = RequestMethod.POST )
     public String save(@Valid Post post, BindingResult bindingResult, Model model) {
@@ -70,7 +60,13 @@ public class AdminController {
             return "admin/addPost";
         } else {
             Post savedPost = postService.save(post);
-            System.out.println(savedPost.toString());
+
+            try {
+                notificationService.sendEmail(savedPost, postObserverService.getAllObservers());
+            }catch (Exception e){
+                System.out.println("Something went wrong");
+            }
+
             return "redirect:/admin/";
         }
     }

@@ -1,6 +1,6 @@
 package com.tomek.repository;
 
-import com.tomek.domain.observer.PostObserver;
+import com.tomek.domain.PostObserver;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

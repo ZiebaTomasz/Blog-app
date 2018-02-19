@@ -2,7 +2,7 @@ package com.tomek;
 
 import com.tomek.domain.Post;
 import com.tomek.domain.Writer;
-import com.tomek.domain.observer.PostObserver;
+import com.tomek.domain.PostObserver;
 import com.tomek.repository.PostObserverRepository;
 import com.tomek.repository.PostRepository;
 import com.tomek.repository.WriterRepository;
@@ -10,10 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.spi.CalendarNameProvider;
 
 @Component
 public class Database {
@@ -63,7 +60,7 @@ public class Database {
                 " father mother exeter change six did all. ");
         postRepository.save(secondPost);
 
-        PostObserver postObserver = new PostObserver("tomek@mail.com");
+        PostObserver postObserver = new PostObserver("ziebatomasz3@gmail.com");
         postObserverRepository.save(postObserver);
 
     }

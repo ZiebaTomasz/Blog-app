@@ -18,6 +18,7 @@ public class Post {
     private String heading;
 
     @Lob
+    @NotEmpty
     private String description;
 
     @Lob
