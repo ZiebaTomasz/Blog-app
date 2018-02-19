@@ -30,7 +30,6 @@ public class Post {
     @ManyToOne
     private Writer writer;
 
-
     @ElementCollection(targetClass=String.class, fetch = FetchType.EAGER)
     private List<String> tags = new ArrayList<>();
 
@@ -45,6 +44,5 @@ public class Post {
     public void addTag(String tag){
         tags.add(tag);
     }
-
 
 }
