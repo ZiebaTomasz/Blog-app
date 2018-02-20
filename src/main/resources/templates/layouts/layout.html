@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<layout:html lang="en"
+<layout:html th:lang="${#locale.language}"
              xmlns="http://www.w3.org/1999/xhtml"
              xmlns:th="http://www.thymeleaf.org"
              xmlns:layout="http://www.w3.org/1999/xhtml">
     <head>
         <title>writers</title>
-        <style type="text/css">
-
-        </style>
+        <style type="text/css"></style>
     </head>
     <body>
     <br></br>
@@ -15,11 +13,12 @@
         <table class="header" style="width: 550px">
             <thead>
                 <tr>
-                    <th><a th:href="@{/}"><p th:text="#{posts}"></p></a></th>
-                    <th><a th:href="@{/writers}"><p th:text="#{writers}"></p></a></th>
-                    <th><a th:href="@{/admin}"><p th:text="#{admin}"></p></a></th>
-                    <th><a th:href="@{/login}"><p th:text="#{login}"></p></a></th>
-                    <th><a th:href="@{/observer/register}"><p th:text="#{sub}"></p></a></th>
+
+                    <th><a th:text="#{posts}" th:href="@{/}"></a></th>
+                    <th><a th:text="#{writers}" th:href="@{/writers}"></a></th>
+                    <th><a th:text="#{adminPage}" th:href="@{/admin}"></a></th>
+                    <th><a th:text="#{login}" th:href="@{/login}"></a></th>
+                    <th><a th:text="#{sub}" th:href="@{/observer/register}">!</a></th>
                 </tr>
             </thead>
             <tbody>

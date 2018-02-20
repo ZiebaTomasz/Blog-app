@@ -4,9 +4,8 @@
              xmlns:layout="http://www.w3.org/1999/xhtml">
     <head th:replace="layouts/layout :: head">
 
-        <title>posts</title>
+        <title></title>
         <style type="text/css">
-
             table.tab {
                 border-width: 2px;
                 border-color: black;
@@ -20,12 +19,13 @@
     <body>
     <div>
         <br></br>
-        <h1>Posts</h1>
+        <h1 th:text="#{post}" style="font-size: 300%; color: #a5191b"></h1>
         <article th:each="post : ${posts}">
             <p th:text="${#dates.format(post.postDate, 'dd.MM.yyyy HH:mm')}"></p>
             <h1 th:text="${post.heading}"></h1>
             <p th:text="${post.description}"></p>
-            <a th:href="|@{/post/}${post.id}|">Read More</a>
+            <a th:text="#{readMore}" th:href="|@{/post/}${post.id}|"></a>
+            <br></br>
             <br></br>
             <br></br>
         </article>

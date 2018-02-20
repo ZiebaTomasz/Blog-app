@@ -53,6 +53,13 @@ public class AdminController {
         return "admin/addPost";
     }
 
+    @RequestMapping("admin/edit/{id}")
+    public String editPost(@PathVariable(value = "id") Long id, Model model){
+        model.addAttribute("post",postService.postById(id));
+        model.addAttribute("writers",writerService.allWritersById());
+        return "admin/edit";
+    }
+
     @RequestMapping( value = "/admin/save", method = RequestMethod.POST )
     public String save(@Valid Post post, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
@@ -61,12 +68,29 @@ public class AdminController {
         } else {
             Post savedPost = postService.save(post);
 
-            try {
-                notificationService.sendEmail(savedPost, postObserverService.getAllObservers());
-            }catch (Exception e){
-                System.out.println("Something went wrong");
-            }
+            Thread thread = new Thread(){
+                public void run(){
+                    try {
+                        synchronized (this){
+                            notificationService.sendEmail(savedPost, postObserverService.getAllObservers());
+                        }
+                    }catch (Exception e){
+                        System.out.println("Something went wrong");
+                    }
+                }
+            };
+            thread.start();
+            return "redirect:/admin/";
+        }
+    }
 
+    @RequestMapping( value = "/admin/onlySave", method = RequestMethod.POST )
+    public String saveWithoutNotification(@Valid Post post, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("writers", writerService.allWritersById());
+            return "admin/addPost";
+        } else {
+            Post savedPost = postService.save(post);
             return "redirect:/admin/";
         }
     }

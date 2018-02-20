@@ -10,16 +10,16 @@
     <table class="tab">
         <thead>
         <tr>
-            <th>Author</th>
-            <th>email</th>
-            <th>See all posts</th>
+            <th th:text="#{author}"></th>
+            <th th:text="#{email}"></th>
+            <th th:text="#{seeAllPosts}"></th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="writer : ${writers}">
             <td th:text="${writer.firstName}">first name</td>
-            <td><a th:href="${writer.email}">email</a></td>
-            <td><a th:href="|@{/postWriter/}${writer.id}|">See posts</a></td>
+            <td><a th:text="#{email}" th:href="${writer.email}"></a></td>
+            <td><a th:text="#{seePosts}" th:href="|@{/postWriter/}${writer.id}|"></a></td>
 
         </tr>
         </tbody>

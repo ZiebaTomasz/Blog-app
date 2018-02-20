@@ -42,6 +42,7 @@ public class Database {
 
         firstPost.setPostDate(new Date(115, 05, 07, 12, 30));
         firstPost.setWriter(tomek);
+        firstPost.setHeading("head");
         firstPost.setDescription("first post for tests");
         firstPost.setContent("Resources exquisite set arranging moonlight sex him household had. \n" +
                 " Months had too ham cousin remove far spirit. She procuring the why performed continual improving.\n" +

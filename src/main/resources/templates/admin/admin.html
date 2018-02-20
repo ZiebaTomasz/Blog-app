@@ -39,7 +39,7 @@
             <td th:text="${post.writer.firstName}"></td>
 
             <td><a th:href="|@{/post/}${post.id}|">Detail</a></td>
-            <td><a th:href="|@{/edit}${post.id}|">Edit</a></td>
+            <td><a th:href="|@{/admin/edit/}${post.id}|">Edit</a></td>
             <td><a th:href="|@{/admin/delete/}${post.id}|">Delete</a></td>
         </tr>
         </tbody>
